@@ -8,6 +8,9 @@ chromeProfilePath = os.path.join(os.getcwd(), "chrome_profile", "linkedin_profil
 
 def ensure_chrome_profile():
     profile_dir = os.path.dirname(chromeProfilePath)
+    print("Hello---------------->"+profile_dir)
+    # profile_dir = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+    # print("Hello---------------->"+profile_dir)
     if not os.path.exists(profile_dir):
         os.makedirs(profile_dir)
     if not os.path.exists(chromeProfilePath):
@@ -50,6 +53,7 @@ def scroll_slow(driver, scrollable_element, start=0, end=3600, step=100, reverse
 def chromeBrowserOptions():
     ensure_chrome_profile()
     options = webdriver.ChromeOptions()
+   # options.add_argument('--headless')
     options.add_argument("--start-maximized")  # Avvia il browser a schermo intero
     options.add_argument("--no-sandbox")  # Disabilita la sandboxing per migliorare le prestazioni
     options.add_argument("--disable-dev-shm-usage")  # Utilizza una directory temporanea per la memoria condivisa
@@ -68,6 +72,7 @@ def chromeBrowserOptions():
     options.add_argument("--disable-plugins")  # Disabilita i plugin del browser
     options.add_argument("--disable-animations")  # Disabilita le animazioni
     options.add_argument("--disable-cache")  # Disabilita la cache 
+    options.add_argument("useAutomationExtension")
     options.add_experimental_option("excludeSwitches", ["enable-automation", "enable-logging"])  # Esclude switch della modalità automatica e logging
 
     # Preferenze per contenuti

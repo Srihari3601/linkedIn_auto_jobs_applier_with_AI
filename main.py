@@ -150,6 +150,13 @@ class FileManager:
 
         return result
 
+# def init_browser() -> webdriver.Edge:
+#     try:
+#         options = chromeBrowserOptions()
+#         service = ChromeService(ChromeDriverManager().install())
+#         return webdriver.Edge(service=service, options=options)
+#     except Exception as e:
+#         raise RuntimeError(f"Failed to initialize browser: {str(e)}")
 def init_browser() -> webdriver.Chrome:
     try:
         options = chromeBrowserOptions()
